@@ -1,8 +1,11 @@
 .container-Landing{
-    width: 98%;
-    height: calc(100vh - 50px);
+    width: 85%;
+    min-height: calc(100vh - 55px);
+    height: auto;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: flex-start;
     align-items: center;
+    border: 2px solid white;
+    margin-top: 50px;
 }

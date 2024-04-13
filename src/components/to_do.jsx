@@ -5,10 +5,6 @@ export default function To_Do() {
   const [inputValue, setInputValue] = useState("");
   const [items, setItems] = useState([]);
 
-  function deleteTak(ind){
-    delete(items[ind]);
-  }
-
   useEffect(() => {
     const savedItems = JSON.parse(localStorage.getItem("items"));
     if (savedItems) {
@@ -32,6 +28,10 @@ export default function To_Do() {
     }
   };
 
+  const handleDelete= (index)=> {
+    items.filter(i=> i.id !== index);
+  }
+
   return (
     <div className="container-To-Do">
       <form onSubmit={handleSubmit} className="form-To-Do">
@@ -52,7 +52,7 @@ export default function To_Do() {
         <div className="body-form">
           <ul className="ulBody-Form">
             {items.map((item, index) => (
-              <li key={index}>{index+1}. {item}  <button className="deleteTaks" onClick={deleteTak(index)}></button></li>
+              <li key={index}>{index+1}. {item}  <button className="deleteTaks" onClick={handleDelete(index)}></button></li>
             ))}
           </ul>
         </div>
